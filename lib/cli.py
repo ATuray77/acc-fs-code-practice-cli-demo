@@ -25,10 +25,11 @@ class Cli():
         print("\n" * lines)
         
     def handle_login(self):
-        email = input("Please enter your email:\n\n")
+        email = input("Please enter your email:\n\n")  # get an email. Then find an owner by email
         regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
         if re.fullmatch(regex, email):
             print("Find a user by email")
+            #find owner by email. if found, set current_owner to the user that we find
             owner = Owner.find_or_create_by(email)
             
             self.current_owner = owner
